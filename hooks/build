@@ -1,8 +1,8 @@
 #!/bin/sh
-CLONE_ADDFLAG="-b $DOCKER_TAG"
+export CLONE_ADDFLAG="-b $DOCKER_TAG"
 echo "Previus set $CLONE_ADDFLAG"
 if [ "$DOCKER_TAG" = "latest" ]; then
-    CLONE_ADDFLAG="-b master"
+    export CLONE_ADDFLAG="-b master"
 fi
 echo "Now Loading $CLONE_ADDFLAG"
-docker build -t $IMAGE_NAME --build-arg CLONE_ADDFLAG="$CLONE_ADDFLAG" .
+docker build -t $IMAGE_NAME --build-arg CLONE_ADDFLAG .
