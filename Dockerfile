@@ -1,5 +1,7 @@
 FROM ubuntu:18.04
 MAINTAINER MascoSkray <MascoSkray@gmail.com>
 
-RUN export; find / -name "WhereIs.It";cat /proc/cpuinfo;df -h;free -m;\
-    echo $SOURCE_BRANCH $DOCKER_REPO $DOCKER_TAG
+#Update apt and install git
+RUN apt-get update && apt-get install -y git
+#Clone the latest UOJ Community verison to local
+RUN echo "CL FLAG=${CLONE_ADDFLAG}" && cd ~ && git clone https://github.com/UniversalOJ/UOJ-System.git --depth 1 --single-branch ${CLONE_ADDFLAG}
