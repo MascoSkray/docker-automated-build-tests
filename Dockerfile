@@ -1,5 +1,6 @@
 FROM ubuntu:18.04
 MAINTAINER MascoSkray <MascoSkray@gmail.com>
+ARG CLONE_ADDFLAG
 
 #Update apt and install git
 RUN apt-get update && apt-get install -y git
